@@ -1,30 +1,24 @@
-class PartyAnimal:
-
-    def __init__(self, nam):
-        self.x = 0
-        self.name = nam
-        print(self.name, "constructed")
-
-    def party(self):
-        self.x = self.x + 1
-        print(self.name, "party count", self.x)
 
 
-class FootballFan(PartyAnimal):
+class Animal:
+    def __init__(self, name):
+        self.name = name
 
-    def __init__(self, nam):
-        super().__init__(nam)
-        self.points = 0
+    def speak(self):
+        return "Some sound"
 
-    def touchdown(self):
-        self.points = self.points + 7
-        self.party()
-        print(self.name, "points", self.points)
+class Dog(Animal):
+    def speak(self):
+        return "Woof!"
 
+class Cat(Animal):
+    def speak(self):
+        return "Meow!"
 
-s = PartyAnimal("Sally")
-s.party()
+if __name__ == "__main__":
+    dog = Dog("Rex")
+    cat = Cat("Whiskers")
 
-j = FootballFan("Jim")
-j.party()
-j.touchdown()
+    print(f"{dog.name} says: {dog.speak()}")
+    print(f"{cat.name} says: {cat.speak()}")
+
